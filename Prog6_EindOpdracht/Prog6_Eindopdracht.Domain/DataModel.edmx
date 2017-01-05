@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Domain.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Prog6_EindopdrachtDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Tamagotchi">
           <Key>
             <PropertyRef Name="ID" />
@@ -16,15 +16,16 @@
           <Property Name="Sleep" Type="int" Nullable="false" />
           <Property Name="Boredom" Type="int" Nullable="false" />
           <Property Name="DateOfLastAcces" Type="datetime" Nullable="false" />
+          <Property Name="Health" Type="int" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="DomainStoreContainer">
+        <EntityContainer Name="Prog6_EindopdrachtDBModelStoreContainer">
           <EntitySet Name="Tamagotchi" EntityType="Self.Tamagotchi" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Domain" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Prog6_EindopdrachtDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Tamagotchi">
           <Key>
             <PropertyRef Name="ID" />
@@ -36,6 +37,7 @@
           <Property Name="Sleep" Type="Int32" Nullable="false" />
           <Property Name="Boredom" Type="Int32" Nullable="false" />
           <Property Name="DateOfLastAcces" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Health" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Tamagotchi" EntityType="Self.Tamagotchi" />
@@ -45,9 +47,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DomainStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="Prog6_EindopdrachtDBModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Tamagotchi">
-            <EntityTypeMapping TypeName="Domain.Tamagotchi">
+            <EntityTypeMapping TypeName="Prog6_EindopdrachtDBModel.Tamagotchi">
               <MappingFragment StoreEntitySet="Tamagotchi">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -56,6 +58,7 @@
                 <ScalarProperty Name="Sleep" ColumnName="Sleep" />
                 <ScalarProperty Name="Boredom" ColumnName="Boredom" />
                 <ScalarProperty Name="DateOfLastAcces" ColumnName="DateOfLastAcces" />
+                <ScalarProperty Name="Health" ColumnName="Health" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -18,12 +18,12 @@ namespace Prog6_EindOpdracht.WCF
             
         }
 
-        public IEnumerable<Tamagotchi> GetTamagotchis()
+        public List<Tamagotchi> GetTamagotchis()
         {
             using (var context = new TamagotchiContext())
             {
                 var tamagotchis = context.Tamagotchis.ToList();
-                return tamagotchis.Select(t => new Tamagotchi(t));
+                return tamagotchis.Select(t => new Tamagotchi(t)).ToList();
             }
         }
 
@@ -34,6 +34,19 @@ namespace Prog6_EindOpdracht.WCF
                 context.Tamagotchis.Add(tamagotchi.ToTamagotchi());
                 context.SaveChanges();
                 return tamagotchi;
+            }
+        }
+
+        public string WorkingService()
+        {
+            return "The Service is working!";
+        }
+
+        public bool WorkingDbContext()
+        {
+            using (var context = new TamagotchiContext())
+            {
+                return context.Tamagotchis.First().Name.Equals("Melvin");
             }
         }
     }

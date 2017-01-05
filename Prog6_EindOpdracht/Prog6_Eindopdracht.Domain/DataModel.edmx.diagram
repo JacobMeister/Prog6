@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a67fdd5c6288461caa84fafb8a3218a3" Name="Diagram1">
-        <EntityTypeShape EntityType="Domain.Tamagotchi" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="21a2241fdda44b2eb93caabe00e10d5c" Name="Diagram1">
+        <EntityTypeShape EntityType="Prog6_EindopdrachtDBModel.Tamagotchi" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

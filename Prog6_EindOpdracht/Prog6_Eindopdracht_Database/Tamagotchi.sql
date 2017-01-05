@@ -6,5 +6,6 @@
     [Hunger] INT NOT NULL, 
 	[Sleep] INT NOT NULL, 
 	[Boredom] INT NOT NULL, 
-    [DateOfLastAcces] DATETIME NOT NULL
+    [DateOfLastAcces] DATETIME NOT NULL,
+	[Health] INT NOT NULL
 )

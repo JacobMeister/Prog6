@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://prog6eindopdrachtmaartenben.azurewebsites.net/TamagotchiService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Prog6_EindOpdracht.WCF" />
+  <xs:element name="GetTamagotchis">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTamagotchisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Prog6_EindOpdracht.WCF" minOccurs="0" name="GetTamagotchisResult" nillable="true" type="q1:ArrayOfTamagotchi" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTamagotchi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Prog6_EindOpdracht.WCF" minOccurs="0" name="tamagotchi" nillable="true" type="q2:Tamagotchi" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTamagotchiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Prog6_EindOpdracht.WCF" minOccurs="0" name="CreateTamagotchiResult" nillable="true" type="q3:Tamagotchi" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WorkingService">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WorkingServiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WorkingServiceResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WorkingDbContext">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WorkingDbContextResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WorkingDbContextResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

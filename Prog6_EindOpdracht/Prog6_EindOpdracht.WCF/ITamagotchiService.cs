@@ -16,12 +16,17 @@ namespace Prog6_EindOpdracht.WCF
     {
 
         [OperationContract]
-        IEnumerable<Tamagotchi> GetTamagotchis();
+        List<Tamagotchi> GetTamagotchis();
 
         [OperationContract]
-        Tamagotchi CreateTamagotchi(Tamagotchi composite);
+        Tamagotchi CreateTamagotchi(Tamagotchi tamagotchi);
 
         // TODO: Add your service operations here
+        [OperationContract]
+        String WorkingService();
+
+        [OperationContract]
+        bool WorkingDbContext();
     }
 
 
@@ -44,6 +49,7 @@ namespace Prog6_EindOpdracht.WCF
             Sleep = tamagotchi.Sleep;
             Boredom = tamagotchi.Boredom;
             DateOfLastAcces = tamagotchi.DateOfLastAcces;
+            Health = tamagotchi.Health;
         }
 
 
@@ -90,6 +96,13 @@ namespace Prog6_EindOpdracht.WCF
         }
 
         [DataMember]
+        public int Health
+        {
+            get;
+            set;
+        }
+
+        [DataMember]
         public DateTime DateOfLastAcces
         {
             get;
@@ -106,7 +119,8 @@ namespace Prog6_EindOpdracht.WCF
                 Hunger = this.Hunger,
                 Sleep = this.Sleep,
                 Boredom = this.Boredom,
-                DateOfLastAcces = this.DateOfLastAcces
+                DateOfLastAcces = this.DateOfLastAcces,
+                Health = this.Health
             };
         }
     }

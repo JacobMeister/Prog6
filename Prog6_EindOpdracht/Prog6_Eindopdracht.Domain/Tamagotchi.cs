@@ -21,5 +21,6 @@ namespace Prog6_Eindopdracht.Domain
         public int Sleep { get; set; }
         public int Boredom { get; set; }
         public System.DateTime DateOfLastAcces { get; set; }
+        public int Health { get; set; }
     }
 }
