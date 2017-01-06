@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Ajax.Utilities;
 using Prog6_Eindopdracht.ASP.Models;
 
 namespace Prog6_Eindopdracht.ASP.Controllers
@@ -17,90 +18,81 @@ namespace Prog6_Eindopdracht.ASP.Controllers
         }
 
 
-        // GET: Tamagotchis
-        public String Index()
-        {
-//            var tamagotchis = _service.GetTamagotchis().Select(t => new Models.TamagotchiModel(t)).ToList();
-//            return View(tamagotchis);
-//            List<TamagotchiModel> tamagotchis = new List<TamagotchiModel>();
-//            foreach (var tamagotchi in _service.GetTamagotchis())
-//            {
-//                tamagotchis.Add(new TamagotchiModel(tamagotchi));
-//            }
-//            return View(tamagotchis);
-            return _service.WorkingDbContext() ? "YESYESYES" : "NOOOOOO";
+         //GET: Tamagotchis
+        public ActionResult Index()
+        {        
+            List<TamagotchiModel> tamagotchis = new List<TamagotchiModel>();
+            foreach (var tamagotchi in _service.GetTamagotchis())
+            {
+                tamagotchis.Add(new TamagotchiModel(tamagotchi));
+            }
+            return View(tamagotchis);
+       
         }
 
         // GET: Tamagotchis/Details/5
         public ActionResult Details(int id)
         {
+            TamagotchiService.Tamagotchi tamagotchi = _service.GeTamagotchi(id);
+            if (tamagotchi == null)
+            {
+               return RedirectToAction("Index");
+            }
+            TamagotchiModel tamagotchiModel = new TamagotchiModel(tamagotchi);
+            return View(tamagotchiModel);
+        }
+
+        // GET: Tamagotchis/BulkCreation
+        public ActionResult BulkCreation()
+        {
             return View();
         }
 
-        // GET: Tamagotchis/Create
-        public ActionResult Create()
+        // POST: Tamagotchis/BulkCreation
+        [HttpPost]
+        public ActionResult BulkCreation(string result)
         {
+            var number = 0;
+            var isNumeric = int.TryParse(result, out number);
+
+            if (!isNumeric || number <= 0)
+            {
+                return View();
+            }
+
+            return RedirectToAction("Create", new {id = number});
+        }
+
+        // GET: Tamagotchis/Create/5
+        public ActionResult Create(int id)
+        {
+            if (id <= 0) id = 1;
+            ViewBag.numberOfTimes = id;
             return View();
         }
 
         // POST: Tamagotchis/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(string[] name)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                return View(name);
+            }
 
-                return RedirectToAction("Index");
-            }
-            catch
+            foreach (var s in name)
             {
-                return View();
+                if (s.IsNullOrWhiteSpace()) continue;
+                _service.CreateTamagotchi(s);
             }
+            
+            return RedirectToAction("Index");
         }
 
-        // GET: Tamagotchis/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Delete(int ID)
         {
-            return View();
-        }
-
-        // POST: Tamagotchis/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Tamagotchis/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Tamagotchis/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            _service.DeleteTamagotchi(ID);
+            return RedirectToAction("Index");
         }
     }
 }

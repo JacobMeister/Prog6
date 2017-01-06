@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="Prog6_EindOpdracht.WCF.TamagotchiService" CodeBehind="TamagotchiService.svc.cs" %>

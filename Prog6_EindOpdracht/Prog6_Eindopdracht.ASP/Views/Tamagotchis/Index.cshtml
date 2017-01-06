@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<Prog6_Eindopdracht.ASP.Models.TamagotchiModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Overview";
 }
 
-<h2>Index</h2>
+<h2>Tamagotchi overview</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -36,9 +33,8 @@
             @Html.DisplayFor(modelItem => item.Health)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Details", "Details", new { item.ID}) |
+            @Html.ActionLink("Delete", "Delete", new { item.ID }) 
         </td>
     </tr>
  }   

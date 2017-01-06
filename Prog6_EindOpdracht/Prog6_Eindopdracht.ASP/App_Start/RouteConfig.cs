@@ -16,7 +16,7 @@ namespace Prog6_Eindopdracht.ASP
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Tamagotchis", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
