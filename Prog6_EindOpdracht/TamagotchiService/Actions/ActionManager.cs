@@ -17,7 +17,7 @@ namespace TamagotchiService.Actions
         private IAction _play;
         private IAction _sleep;
 
-        public ActionManager(IEnumerable<Tamagotchi> tamagotchis )
+        public ActionManager( )
         {
             _clean = ActionFactory.GetActionFor(ActionEnum.CLEAN);
             _feed = ActionFactory.GetActionFor(ActionEnum.FEED);
@@ -25,7 +25,6 @@ namespace TamagotchiService.Actions
             _play = ActionFactory.GetActionFor(ActionEnum.PLAY);
 
             _countDown = new Dictionary<int, KeyValuePair<int, string>>();
-            FillDictionary(tamagotchis);
         }
 
         private void FillDictionary(IEnumerable<Tamagotchi> tamagotchis)

@@ -197,6 +197,9 @@
     <Content Include="Views\Tamagotchis\Create.cshtml" />
     <Content Include="Views\Tamagotchis\BulkCreation.cshtml" />
     <Content Include="Views\Tamagotchis\Details.cshtml" />
+    <None Include="Service References\TamagotchiService\TamagotchiService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

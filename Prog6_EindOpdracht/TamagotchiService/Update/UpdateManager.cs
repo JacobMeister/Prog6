@@ -14,12 +14,21 @@ namespace TamagotchiService.Update
         private SleepIncrease _sleepIncrease;
         private IEnumerable<IRule> _rules;
 
+        public int Frequency { get; set; }
+
         public UpdateManager(IEnumerable<IRule> rules )
         {
             _rules = rules;
             _boredomIncrease = new BoredomIncrease(15, 35);
             _hungerIncrease = new HungerIncrease(15, 35);
             _sleepIncrease = new SleepIncrease(15, 35);
+            Frequency = 10;
+        }
+
+        public void ChangeUpdateFrequency(int amount)
+        {
+            if (amount < 0) amount = 0;
+            Frequency = amount;
         }
 
         public void DoUpdate(Tamagotchi tamagotchi)

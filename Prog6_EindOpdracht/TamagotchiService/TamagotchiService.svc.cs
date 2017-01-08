@@ -20,10 +20,10 @@ namespace TamagotchiService
         private UpdateManager _updateManager;
         private ActionManager _actionManager;
 
-          public TamagotchiService()
+          public TamagotchiService(UpdateManager updateManager, ActionManager actionManager)
           {
-              _updateManager = new UpdateManager(RuleFactory.SupplyRules());
-              _actionManager = new ActionManager(GetTamagotchis());
+              _updateManager = updateManager;
+              _actionManager = actionManager;
           }
 
         public List<Tamagotchi> GetTamagotchis()
@@ -188,6 +188,16 @@ namespace TamagotchiService
                 context.SaveChanges();
             }
       
+        }
+
+        public int GetUpdateFrequency()
+        {
+            return _updateManager.Frequency;
+        }
+
+        public void ChangeUpdateFrequency(int amount)
+        {
+            _updateManager.Frequency = amount;
         }
     }
 }

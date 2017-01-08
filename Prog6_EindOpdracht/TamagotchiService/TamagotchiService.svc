@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="TamagotchiService.TamagotchiService" CodeBehind="TamagotchiService.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="TamagotchiService.TamagotchiService" CodeBehind="TamagotchiService.svc.cs"  Factory ="TamagotchiService.Extensions.WcfServiceFactory"%>

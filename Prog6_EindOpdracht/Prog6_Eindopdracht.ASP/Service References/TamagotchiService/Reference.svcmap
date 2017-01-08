@@ -22,11 +22,12 @@
     <MetadataSource Address="http://tamagotchiservicebenmaarten.azurewebsites.net/TamagotchiService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="TamagotchiService.disco" MetadataType="Disco" ID="3d854be4-5f89-4676-8954-aed156fff96f" SourceId="1" SourceUrl="http://tamagotchiservicebenmaarten.azurewebsites.net/TamagotchiService.svc?disco" />
+    <MetadataFile FileName="TamagotchiService.wsdl" MetadataType="Wsdl" ID="570e85c1-ca1e-49f8-9a32-c7a9852c0ba2" SourceId="1" SourceUrl="http://tamagotchiservicebenmaarten.azurewebsites.net/TamagotchiService.svc?wsdl" />
+    <MetadataFile FileName="TamagotchiService3.xsd" MetadataType="Schema" ID="30150b52-e2e7-4e1f-9871-ae7369e4102f" SourceId="1" SourceUrl="http://tamagotchiservicebenmaarten.azurewebsites.net/TamagotchiService.svc?xsd=xsd3" />
     <MetadataFile FileName="TamagotchiService.xsd" MetadataType="Schema" ID="3919b7ff-ba36-40d8-9ceb-6f9a4154984d" SourceId="1" SourceUrl="http://tamagotchiservicebenmaarten.azurewebsites.net/TamagotchiService.svc?xsd=xsd0" />
     <MetadataFile FileName="TamagotchiService1.xsd" MetadataType="Schema" ID="8560444b-a7db-4132-b5e8-96a202dd06b2" SourceId="1" SourceUrl="http://tamagotchiservicebenmaarten.azurewebsites.net/TamagotchiService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TamagotchiService.disco" MetadataType="Disco" ID="3d854be4-5f89-4676-8954-aed156fff96f" SourceId="1" SourceUrl="http://tamagotchiservicebenmaarten.azurewebsites.net/TamagotchiService.svc?disco" />
     <MetadataFile FileName="TamagotchiService2.xsd" MetadataType="Schema" ID="a0494f61-f4da-455b-9593-cfea60eff500" SourceId="1" SourceUrl="http://tamagotchiservicebenmaarten.azurewebsites.net/TamagotchiService.svc?xsd=xsd2" />
-    <MetadataFile FileName="TamagotchiService.wsdl" MetadataType="Wsdl" ID="570e85c1-ca1e-49f8-9a32-c7a9852c0ba2" SourceId="1" SourceUrl="http://tamagotchiservicebenmaarten.azurewebsites.net/TamagotchiService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

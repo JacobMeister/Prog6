@@ -47,5 +47,11 @@ namespace TamagotchiService
 
         [OperationContract]
         void DoRotation();
+
+        [OperationContract]
+        int GetUpdateFrequency();
+
+        [OperationContract]
+        void ChangeUpdateFrequency(int amount);
     }
 }
