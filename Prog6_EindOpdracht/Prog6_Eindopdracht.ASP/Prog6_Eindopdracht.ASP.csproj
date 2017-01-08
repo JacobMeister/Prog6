@@ -205,11 +205,13 @@
     <None Include="Service References\TamagotchiService\TamagotchiService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Views\Tamagotchis\Reset.cshtml" />
     <Content Include="Views\Tamagotchis\Settings.cshtml" />
     <None Include="Service References\TamagotchiService\TamagotchiService4.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\Tamagotchis\Reset.cshtml" />
+    <Content Include="Views\Tamagotchis\SettingsSucces.cshtml" />
+    <Content Include="Views\Tamagotchis\ActionFailed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

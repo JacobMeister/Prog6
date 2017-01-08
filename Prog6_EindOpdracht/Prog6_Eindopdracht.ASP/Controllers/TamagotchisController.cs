@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.Ajax.Utilities;
 using Prog6_Eindopdracht.ASP.Models;
+using Prog6_Eindopdracht.ASP.TamagotchiService;
 
 namespace Prog6_Eindopdracht.ASP.Controllers
 {
@@ -110,8 +111,64 @@ namespace Prog6_Eindopdracht.ASP.Controllers
 
         public ActionResult Settings()
         {
-            //SettingsModel settings = new SettingsModel();
+            SettingsModel settings = new SettingsModel(_service.GetCurrentSettings());
 
+            return View(settings);
+        }
+
+        [HttpPost]
+        public ActionResult Settings(SettingsModel settings)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(settings);
+            }
+
+            _service.SetSettings(settings.ToWcfSetting(settings));
+            return RedirectToAction("SettingsSucces");
+        }
+
+        public ActionResult SettingsSucces()
+        {
+            return View();
+        }
+
+        public ActionResult Sleep(int id)
+        {
+            if (!_service.CanActionBePerformed(id))
+                return RedirectToAction("ActionFailed", _service.CountdownAndPerformingAction(id));
+            _service.SleepWithTamagotchi(id);
+            return RedirectToAction("Details",new {ID = id});
+        }
+
+        public ActionResult Clean(int id)
+        {
+            if (!_service.CanActionBePerformed(id))
+                return RedirectToAction("ActionFailed", _service.CountdownAndPerformingAction(id));
+            _service.CleanTamagotchi(id);
+            return RedirectToAction("Details", new { ID = id });
+        }
+
+        public ActionResult Feed(int id)
+        {
+            if (!_service.CanActionBePerformed(id))
+                return RedirectToAction("ActionFailed", _service.CountdownAndPerformingAction(id));
+            _service.FeedTamagotchi(id);
+            return RedirectToAction("Details", new { ID = id });
+        }
+
+        public ActionResult Play(int id)
+        {
+            if (!_service.CanActionBePerformed(id))
+                return RedirectToAction("ActionFailed", _service.CountdownAndPerformingAction(id));
+            _service.PlayWithTamagotchi(id);
+            return RedirectToAction("Details", new { ID = id });
+        }
+
+        public ActionResult ActionFailed(KeyValuePair<int, string> countdownAction)
+        {
+            ViewBag.RemainingCountdown = countdownAction.Key;
+            ViewBag.ActionPerformed = countdownAction.Value;
             return View();
         }
     }

@@ -10,6 +10,11 @@ namespace TamagotchiService.Rules
     {
         public bool RuleStatus { get; set; }
 
+        public Munchies()
+        {
+            RuleStatus = true;
+        }
+
         public bool ExecuteRule(Tamagotchi tamagotchi)
         {
             return tamagotchi.Boredom > 80 && RuleStatus;

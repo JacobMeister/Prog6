@@ -10,6 +10,10 @@ namespace TamagotchiService.Rules
     {
         public bool RuleStatus { get; set; }
 
+        public Starving()
+        {
+            RuleStatus = true;
+        }
         public bool ExecuteRule(Tamagotchi tamagotchi)
         {
             return tamagotchi.Hunger > 80 && RuleStatus;

@@ -10,19 +10,6 @@
     <h4>You are viewing the properties of: @Model.Name!</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Health)
-        </dt>
-
-        <dd>
-            
-            <div class="progress">
-                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@Model.Health.ToString()"
-                     aria-valuemin="0" aria-valuemax="100" style="width:@Model.Health%">
-                   
-                </div>
-            </div>
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -39,13 +26,27 @@
         <dd>
             @Html.DisplayFor(model => model.Age)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Health)
+        </dt>
 
+        <dd>
+            <div class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@Model.Health.ToString()"
+                     aria-valuemin="0" aria-valuemax="100" style="width: @Model.Health%">
+                </div>
+            </div>
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Hunger)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Hunger)
+            <div class="progress">
+                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="@Model.Hunger.ToString()"
+                     aria-valuemin="0" aria-valuemax="100" style="width: @Model.Hunger%">
+                </div>
+            </div>
         </dd>
 
         <dt>
@@ -53,7 +54,11 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Sleep)
+            <div class="progress">
+                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="@Model.Sleep.ToString()"
+                     aria-valuemin="0" aria-valuemax="100" style="width: @Model.Sleep%">
+                </div>
+            </div>
         </dd>
 
         <dt>
@@ -61,22 +66,35 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Boredom)
+            <div class="progress">
+                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="@Model.Boredom.ToString()"
+                     aria-valuemin="0" aria-valuemax="100" style="width: @Model.Boredom%">
+                </div>
+            </div>
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfLastAcces)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateOfLastAcces)
-        </dd>
-
     </dl>
+    <table border="0">
+        <tr>
+            <td>
+                @Html.ActionLink("Sleep", "Sleep", "Tamagotchis", new { Model.ID }, new { @class = "btn btn-default" })
+            </td>
+
+            <td>
+                @Html.ActionLink("Clean", "Clean", "Tamagotchis", new { Model.ID }, new { @class = "btn btn-default" })
+            </td>
+
+            <td>
+                @Html.ActionLink("Feed", "Feed", "Tamagotchis", new { Model.ID }, new { @class = "btn btn-default" })
+            </td>
+            <td>
+                @Html.ActionLink("Play", "Play", "Tamagotchis", new { Model.ID }, new { @class = "btn btn-default" })
+            </td>
+        </tr>
+    </table>
 </div>
-<div>
-    <img src="@Url.Content("~/Content/images/" + @ViewBag.Status + ".gif")" alt="Status of Tamagotchi"/>
+<div class ="col-md-10">
+    <img src="@Url.Content("~/Content/images/" + @ViewBag.Status + ".gif")" alt="Status of Tamagotchi" />
 </div>
-<p>
+<p class="col-md-10">
     @Html.ActionLink("Back to Tamagotchi Overview", "Index")
 </p>

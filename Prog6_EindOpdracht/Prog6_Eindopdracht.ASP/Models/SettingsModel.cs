@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Prog6_Eindopdracht.ASP.TamagotchiService;
 
 namespace Prog6_Eindopdracht.ASP.Models
 {
@@ -33,27 +34,59 @@ namespace Prog6_Eindopdracht.ASP.Models
         public int FeedValue { get; set; }
         public int PlayValue { get; set; }
 
-        public SettingsModel(int minBoreDomIncrease, int maxBoreDomIncrease, int minSleepIncrease, int maxSleepIncrease, int minHungerIncrease, int maxHungerIncrease, bool starvingRule, bool lethargicRule, bool munchiesRule, bool crazyRule, int updateFrequency, int cleanCountdown, int playCountdown, int feedCountdown, int sleepCountdown, int cleanValue, int sleepValue, int feedValue, int playValue)
+        public SettingsModel()
         {
-            MinBoreDomIncrease = minBoreDomIncrease;
-            MaxBoreDomIncrease = maxBoreDomIncrease;
-            MinSleepIncrease = minSleepIncrease;
-            MaxSleepIncrease = maxSleepIncrease;
-            MinHungerIncrease = minHungerIncrease;
-            MaxHungerIncrease = maxHungerIncrease;
-            StarvingRule = starvingRule;
-            LethargicRule = lethargicRule;
-            MunchiesRule = munchiesRule;
-            CrazyRule = crazyRule;
-            UpdateFrequency = updateFrequency;
-            CleanCountdown = cleanCountdown;
-            PlayCountdown = playCountdown;
-            FeedCountdown = feedCountdown;
-            SleepCountdown = sleepCountdown;
-            CleanValue = cleanValue;
-            SleepValue = sleepValue;
-            FeedValue = feedValue;
-            PlayValue = playValue;
+            
+        }
+
+        public SettingsModel(Settings settings)
+        {
+            MinBoreDomIncrease = settings.MinBoreDomIncrease;
+            MaxBoreDomIncrease = settings.MaxBoreDomIncrease;
+            MinSleepIncrease = settings.MinSleepIncrease;
+            MaxSleepIncrease = settings.MaxSleepIncrease;
+            MinHungerIncrease = settings.MinHungerIncrease;
+            MaxHungerIncrease = settings.MaxHungerIncrease;
+            StarvingRule = settings.StarvingRule;
+            LethargicRule = settings.LethargicRule;
+            MunchiesRule = settings.MunchiesRule;
+            CrazyRule = settings.CrazyRule;
+            UpdateFrequency = settings.UpdateFrequency;
+            CleanCountdown = settings.CleanCountdown;
+            PlayCountdown = settings.PlayCountdown;
+            FeedCountdown = settings.FeedCountdown;
+            SleepCountdown = settings.SleepCountdown;
+            CleanValue = settings.CleanValue;
+            SleepValue = settings.SleepValue;
+            FeedValue = settings.FeedValue;
+            PlayValue = settings.PlayValue;
+        }
+
+        public Settings ToWcfSetting(SettingsModel settings)
+        {
+            var returnSettings = new Settings
+            {
+                CleanCountdown = CleanCountdown,
+                CleanValue = CleanValue,
+                FeedCountdown = FeedCountdown,
+                FeedValue = FeedValue,
+                PlayCountdown = PlayCountdown,
+                PlayValue = PlayValue,
+                SleepCountdown = SleepCountdown,
+                SleepValue = SleepValue,
+                UpdateFrequency = UpdateFrequency,
+                CrazyRule = CrazyRule,
+                LethargicRule = LethargicRule,
+                MaxBoreDomIncrease = MaxBoreDomIncrease,
+                MinBoreDomIncrease = MinBoreDomIncrease,
+                MaxHungerIncrease = MaxHungerIncrease,
+                MinHungerIncrease = MinHungerIncrease,
+                MinSleepIncrease = MinSleepIncrease,
+                MaxSleepIncrease = MaxSleepIncrease,
+                MunchiesRule = MunchiesRule,
+                StarvingRule = StarvingRule
+            };
+            return returnSettings;
         }
     }
 }
