@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>TamagotchiModel</h4>
+    <h4>You are viewing the properties of: @Model.Name!</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -15,7 +15,13 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Health)
+            
+            <div class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@Model.Health.ToString()"
+                     aria-valuemin="0" aria-valuemax="100" style="width:@Model.Health%">
+                   
+                </div>
+            </div>
         </dd>
 
         <dt>
@@ -68,6 +74,9 @@
 
     </dl>
 </div>
+<div>
+    <img src="@Url.Content("~/Content/images/" + @ViewBag.Status + ".gif")" alt="Status of Tamagotchi"/>
+</div>
 <p>
-     @Html.ActionLink("Back to Tamagotchi Overview", "Index")
+    @Html.ActionLink("Back to Tamagotchi Overview", "Index")
 </p>

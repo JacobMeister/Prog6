@@ -39,6 +39,7 @@ namespace Prog6_Eindopdracht.ASP.Controllers
                return RedirectToAction("Index");
             }
             TamagotchiModel tamagotchiModel = new TamagotchiModel(tamagotchi);
+            ViewBag.Status = _service.GetCurrentTamagotchiStatus(id);
             return View(tamagotchiModel);
         }
 

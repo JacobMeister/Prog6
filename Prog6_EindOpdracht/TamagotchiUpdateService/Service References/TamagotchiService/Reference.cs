@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Prog6_Eindopdracht.ASP.TamagotchiService {
+namespace TamagotchiUpdateService.TamagotchiService {
     using System.Runtime.Serialization;
     using System;
     
@@ -175,10 +175,10 @@ namespace Prog6_Eindopdracht.ASP.TamagotchiService {
     public interface ITamagotchiService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/GetTamagotchis", ReplyAction="http://tempuri.org/ITamagotchiService/GetTamagotchisResponse")]
-        Prog6_Eindopdracht.ASP.TamagotchiService.Tamagotchi[] GetTamagotchis();
+        TamagotchiUpdateService.TamagotchiService.Tamagotchi[] GetTamagotchis();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/GetTamagotchis", ReplyAction="http://tempuri.org/ITamagotchiService/GetTamagotchisResponse")]
-        System.Threading.Tasks.Task<Prog6_Eindopdracht.ASP.TamagotchiService.Tamagotchi[]> GetTamagotchisAsync();
+        System.Threading.Tasks.Task<TamagotchiUpdateService.TamagotchiService.Tamagotchi[]> GetTamagotchisAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/CreateTamagotchi", ReplyAction="http://tempuri.org/ITamagotchiService/CreateTamagotchiResponse")]
         void CreateTamagotchi(string name);
@@ -193,10 +193,10 @@ namespace Prog6_Eindopdracht.ASP.TamagotchiService {
         System.Threading.Tasks.Task DeleteTamagotchiAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/GeTamagotchi", ReplyAction="http://tempuri.org/ITamagotchiService/GeTamagotchiResponse")]
-        Prog6_Eindopdracht.ASP.TamagotchiService.Tamagotchi GeTamagotchi(int id);
+        TamagotchiUpdateService.TamagotchiService.Tamagotchi GeTamagotchi(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/GeTamagotchi", ReplyAction="http://tempuri.org/ITamagotchiService/GeTamagotchiResponse")]
-        System.Threading.Tasks.Task<Prog6_Eindopdracht.ASP.TamagotchiService.Tamagotchi> GeTamagotchiAsync(int id);
+        System.Threading.Tasks.Task<TamagotchiUpdateService.TamagotchiService.Tamagotchi> GeTamagotchiAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/GetCurrentTamagotchiStatus", ReplyAction="http://tempuri.org/ITamagotchiService/GetCurrentTamagotchiStatusResponse")]
         string GetCurrentTamagotchiStatus(int id);
@@ -230,12 +230,12 @@ namespace Prog6_Eindopdracht.ASP.TamagotchiService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ITamagotchiServiceChannel : Prog6_Eindopdracht.ASP.TamagotchiService.ITamagotchiService, System.ServiceModel.IClientChannel {
+    public interface ITamagotchiServiceChannel : TamagotchiUpdateService.TamagotchiService.ITamagotchiService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class TamagotchiServiceClient : System.ServiceModel.ClientBase<Prog6_Eindopdracht.ASP.TamagotchiService.ITamagotchiService>, Prog6_Eindopdracht.ASP.TamagotchiService.ITamagotchiService {
+    public partial class TamagotchiServiceClient : System.ServiceModel.ClientBase<TamagotchiUpdateService.TamagotchiService.ITamagotchiService>, TamagotchiUpdateService.TamagotchiService.ITamagotchiService {
         
         public TamagotchiServiceClient() {
         }
@@ -256,11 +256,11 @@ namespace Prog6_Eindopdracht.ASP.TamagotchiService {
                 base(binding, remoteAddress) {
         }
         
-        public Prog6_Eindopdracht.ASP.TamagotchiService.Tamagotchi[] GetTamagotchis() {
+        public TamagotchiUpdateService.TamagotchiService.Tamagotchi[] GetTamagotchis() {
             return base.Channel.GetTamagotchis();
         }
         
-        public System.Threading.Tasks.Task<Prog6_Eindopdracht.ASP.TamagotchiService.Tamagotchi[]> GetTamagotchisAsync() {
+        public System.Threading.Tasks.Task<TamagotchiUpdateService.TamagotchiService.Tamagotchi[]> GetTamagotchisAsync() {
             return base.Channel.GetTamagotchisAsync();
         }
         
@@ -280,11 +280,11 @@ namespace Prog6_Eindopdracht.ASP.TamagotchiService {
             return base.Channel.DeleteTamagotchiAsync(id);
         }
         
-        public Prog6_Eindopdracht.ASP.TamagotchiService.Tamagotchi GeTamagotchi(int id) {
+        public TamagotchiUpdateService.TamagotchiService.Tamagotchi GeTamagotchi(int id) {
             return base.Channel.GeTamagotchi(id);
         }
         
-        public System.Threading.Tasks.Task<Prog6_Eindopdracht.ASP.TamagotchiService.Tamagotchi> GeTamagotchiAsync(int id) {
+        public System.Threading.Tasks.Task<TamagotchiUpdateService.TamagotchiService.Tamagotchi> GeTamagotchiAsync(int id) {
             return base.Channel.GeTamagotchiAsync(id);
         }
         

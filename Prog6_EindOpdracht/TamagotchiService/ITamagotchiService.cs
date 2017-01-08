@@ -23,5 +23,29 @@ namespace TamagotchiService
 
         [OperationContract]
         Tamagotchi GeTamagotchi(int id);
+
+        [OperationContract]
+        string GetCurrentTamagotchiStatus(int id);
+
+        [OperationContract]
+        bool CanActionBePerformed(int id);
+
+        [OperationContract]
+        KeyValuePair<int, string> CountdownAndPerformingAction(int id);
+
+        [OperationContract]
+        void FeedTamagotchi(int id);
+
+        [OperationContract]
+        void PlayWithTamagotchi(int id);
+
+        [OperationContract]
+        void SleepWithTamagotchi(int id);
+
+        [OperationContract]
+        void CleanTamagotchi(int id);
+
+        [OperationContract]
+        void DoRotation();
     }
 }
