@@ -12,11 +12,27 @@ namespace TamagotchiService.Update
         private int minIncrease;
         private int maxIncrease;
 
+        public int MaxValue
+        {
+            get { return maxIncrease; }
+        }
+
+        public int MinValue
+        {
+            get { return minIncrease; }
+        }
+
         public IRule Rule { get; private set; }
 
         public void ExecuteIncrement(Tamagotchi tamagotchi)
         {
             tamagotchi.Sleep += new Random(Guid.NewGuid().GetHashCode()).Next(minIncrease, maxIncrease + 1);
+            if (Rule.ExecuteRule(tamagotchi)) tamagotchi.Health -= 20;
+        }
+
+        public void SetLethargicRule(IRule rule)
+        {
+            Rule = rule;
         }
 
         public void UpdatePropertyIncreasers(int min, int max)

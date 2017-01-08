@@ -20,7 +20,7 @@ namespace TamagotchiService.Extensions
             container.Options.DefaultScopedLifestyle = new WcfOperationLifestyle();
 
             container.Register(() => new ActionManager(), Lifestyle.Singleton);
-            container.Register(() => new UpdateManager(RuleFactory.SupplyRules()), Lifestyle.Singleton);
+            container.Register(() => new UpdateManager(), Lifestyle.Singleton);
 
             container.Verify();
 

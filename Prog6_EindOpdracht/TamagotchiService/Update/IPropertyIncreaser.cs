@@ -10,6 +10,9 @@ namespace TamagotchiService.Update
 {
     public interface IPropertyIncreaser
     {
+        int MaxValue { get; }
+        int MinValue { get; }
+
         IRule Rule { get; }
 
         void ExecuteIncrement(Tamagotchi tamagotchi);

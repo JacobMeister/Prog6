@@ -170,6 +170,339 @@ namespace TamagotchiUpdater.TamagotchiService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Settings", Namespace="http://schemas.datacontract.org/2004/07/TamagotchiService")]
+    [System.SerializableAttribute()]
+    public partial class Settings : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CleanCountdownField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CleanValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool CrazyRuleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FeedCountdownField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FeedValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool LethargicRuleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MaxBoreDomIncreaseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MaxHungerIncreaseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MaxSleepIncreaseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MinBoreDomIncreaseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MinHungerIncreaseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MinSleepIncreaseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool MunchiesRuleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PlayCountdownField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PlayValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SleepCountdownField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SleepValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool StarvingRuleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UpdateFrequencyField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CleanCountdown {
+            get {
+                return this.CleanCountdownField;
+            }
+            set {
+                if ((this.CleanCountdownField.Equals(value) != true)) {
+                    this.CleanCountdownField = value;
+                    this.RaisePropertyChanged("CleanCountdown");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CleanValue {
+            get {
+                return this.CleanValueField;
+            }
+            set {
+                if ((this.CleanValueField.Equals(value) != true)) {
+                    this.CleanValueField = value;
+                    this.RaisePropertyChanged("CleanValue");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool CrazyRule {
+            get {
+                return this.CrazyRuleField;
+            }
+            set {
+                if ((this.CrazyRuleField.Equals(value) != true)) {
+                    this.CrazyRuleField = value;
+                    this.RaisePropertyChanged("CrazyRule");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FeedCountdown {
+            get {
+                return this.FeedCountdownField;
+            }
+            set {
+                if ((this.FeedCountdownField.Equals(value) != true)) {
+                    this.FeedCountdownField = value;
+                    this.RaisePropertyChanged("FeedCountdown");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FeedValue {
+            get {
+                return this.FeedValueField;
+            }
+            set {
+                if ((this.FeedValueField.Equals(value) != true)) {
+                    this.FeedValueField = value;
+                    this.RaisePropertyChanged("FeedValue");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool LethargicRule {
+            get {
+                return this.LethargicRuleField;
+            }
+            set {
+                if ((this.LethargicRuleField.Equals(value) != true)) {
+                    this.LethargicRuleField = value;
+                    this.RaisePropertyChanged("LethargicRule");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MaxBoreDomIncrease {
+            get {
+                return this.MaxBoreDomIncreaseField;
+            }
+            set {
+                if ((this.MaxBoreDomIncreaseField.Equals(value) != true)) {
+                    this.MaxBoreDomIncreaseField = value;
+                    this.RaisePropertyChanged("MaxBoreDomIncrease");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MaxHungerIncrease {
+            get {
+                return this.MaxHungerIncreaseField;
+            }
+            set {
+                if ((this.MaxHungerIncreaseField.Equals(value) != true)) {
+                    this.MaxHungerIncreaseField = value;
+                    this.RaisePropertyChanged("MaxHungerIncrease");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MaxSleepIncrease {
+            get {
+                return this.MaxSleepIncreaseField;
+            }
+            set {
+                if ((this.MaxSleepIncreaseField.Equals(value) != true)) {
+                    this.MaxSleepIncreaseField = value;
+                    this.RaisePropertyChanged("MaxSleepIncrease");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MinBoreDomIncrease {
+            get {
+                return this.MinBoreDomIncreaseField;
+            }
+            set {
+                if ((this.MinBoreDomIncreaseField.Equals(value) != true)) {
+                    this.MinBoreDomIncreaseField = value;
+                    this.RaisePropertyChanged("MinBoreDomIncrease");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MinHungerIncrease {
+            get {
+                return this.MinHungerIncreaseField;
+            }
+            set {
+                if ((this.MinHungerIncreaseField.Equals(value) != true)) {
+                    this.MinHungerIncreaseField = value;
+                    this.RaisePropertyChanged("MinHungerIncrease");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MinSleepIncrease {
+            get {
+                return this.MinSleepIncreaseField;
+            }
+            set {
+                if ((this.MinSleepIncreaseField.Equals(value) != true)) {
+                    this.MinSleepIncreaseField = value;
+                    this.RaisePropertyChanged("MinSleepIncrease");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool MunchiesRule {
+            get {
+                return this.MunchiesRuleField;
+            }
+            set {
+                if ((this.MunchiesRuleField.Equals(value) != true)) {
+                    this.MunchiesRuleField = value;
+                    this.RaisePropertyChanged("MunchiesRule");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PlayCountdown {
+            get {
+                return this.PlayCountdownField;
+            }
+            set {
+                if ((this.PlayCountdownField.Equals(value) != true)) {
+                    this.PlayCountdownField = value;
+                    this.RaisePropertyChanged("PlayCountdown");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PlayValue {
+            get {
+                return this.PlayValueField;
+            }
+            set {
+                if ((this.PlayValueField.Equals(value) != true)) {
+                    this.PlayValueField = value;
+                    this.RaisePropertyChanged("PlayValue");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SleepCountdown {
+            get {
+                return this.SleepCountdownField;
+            }
+            set {
+                if ((this.SleepCountdownField.Equals(value) != true)) {
+                    this.SleepCountdownField = value;
+                    this.RaisePropertyChanged("SleepCountdown");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SleepValue {
+            get {
+                return this.SleepValueField;
+            }
+            set {
+                if ((this.SleepValueField.Equals(value) != true)) {
+                    this.SleepValueField = value;
+                    this.RaisePropertyChanged("SleepValue");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool StarvingRule {
+            get {
+                return this.StarvingRuleField;
+            }
+            set {
+                if ((this.StarvingRuleField.Equals(value) != true)) {
+                    this.StarvingRuleField = value;
+                    this.RaisePropertyChanged("StarvingRule");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UpdateFrequency {
+            get {
+                return this.UpdateFrequencyField;
+            }
+            set {
+                if ((this.UpdateFrequencyField.Equals(value) != true)) {
+                    this.UpdateFrequencyField = value;
+                    this.RaisePropertyChanged("UpdateFrequency");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TamagotchiService.ITamagotchiService")]
     public interface ITamagotchiService {
@@ -252,17 +585,23 @@ namespace TamagotchiUpdater.TamagotchiService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/GetUpdateFrequency", ReplyAction="http://tempuri.org/ITamagotchiService/GetUpdateFrequencyResponse")]
         System.Threading.Tasks.Task<int> GetUpdateFrequencyAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/ChangeUpdateFrequency", ReplyAction="http://tempuri.org/ITamagotchiService/ChangeUpdateFrequencyResponse")]
-        void ChangeUpdateFrequency(int amount);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/ChangeUpdateFrequency", ReplyAction="http://tempuri.org/ITamagotchiService/ChangeUpdateFrequencyResponse")]
-        System.Threading.Tasks.Task ChangeUpdateFrequencyAsync(int amount);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/ResetTamagotchis", ReplyAction="http://tempuri.org/ITamagotchiService/ResetTamagotchisResponse")]
         void ResetTamagotchis();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/ResetTamagotchis", ReplyAction="http://tempuri.org/ITamagotchiService/ResetTamagotchisResponse")]
         System.Threading.Tasks.Task ResetTamagotchisAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/GetCurrentSettings", ReplyAction="http://tempuri.org/ITamagotchiService/GetCurrentSettingsResponse")]
+        TamagotchiUpdater.TamagotchiService.Settings GetCurrentSettings();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/GetCurrentSettings", ReplyAction="http://tempuri.org/ITamagotchiService/GetCurrentSettingsResponse")]
+        System.Threading.Tasks.Task<TamagotchiUpdater.TamagotchiService.Settings> GetCurrentSettingsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/SetSettings", ReplyAction="http://tempuri.org/ITamagotchiService/SetSettingsResponse")]
+        void SetSettings(TamagotchiUpdater.TamagotchiService.Settings settings);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/SetSettings", ReplyAction="http://tempuri.org/ITamagotchiService/SetSettingsResponse")]
+        System.Threading.Tasks.Task SetSettingsAsync(TamagotchiUpdater.TamagotchiService.Settings settings);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -396,20 +735,28 @@ namespace TamagotchiUpdater.TamagotchiService {
             return base.Channel.GetUpdateFrequencyAsync();
         }
         
-        public void ChangeUpdateFrequency(int amount) {
-            base.Channel.ChangeUpdateFrequency(amount);
-        }
-        
-        public System.Threading.Tasks.Task ChangeUpdateFrequencyAsync(int amount) {
-            return base.Channel.ChangeUpdateFrequencyAsync(amount);
-        }
-        
         public void ResetTamagotchis() {
             base.Channel.ResetTamagotchis();
         }
         
         public System.Threading.Tasks.Task ResetTamagotchisAsync() {
             return base.Channel.ResetTamagotchisAsync();
+        }
+        
+        public TamagotchiUpdater.TamagotchiService.Settings GetCurrentSettings() {
+            return base.Channel.GetCurrentSettings();
+        }
+        
+        public System.Threading.Tasks.Task<TamagotchiUpdater.TamagotchiService.Settings> GetCurrentSettingsAsync() {
+            return base.Channel.GetCurrentSettingsAsync();
+        }
+        
+        public void SetSettings(TamagotchiUpdater.TamagotchiService.Settings settings) {
+            base.Channel.SetSettings(settings);
+        }
+        
+        public System.Threading.Tasks.Task SetSettingsAsync(TamagotchiUpdater.TamagotchiService.Settings settings) {
+            return base.Channel.SetSettingsAsync(settings);
         }
     }
 }

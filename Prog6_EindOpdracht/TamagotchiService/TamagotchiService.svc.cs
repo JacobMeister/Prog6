@@ -187,17 +187,11 @@ namespace TamagotchiService
                 }
                 context.SaveChanges();
             }
-      
         }
 
         public int GetUpdateFrequency()
         {
             return _updateManager.Frequency;
-        }
-
-        public void ChangeUpdateFrequency(int amount)
-        {
-            _updateManager.Frequency = amount;
         }
 
         public void ResetTamagotchis()
@@ -210,6 +204,55 @@ namespace TamagotchiService
                 }
                 context.SaveChanges();
             }
+        }
+
+        public Settings GetCurrentSettings()
+        {
+            return new Settings(
+                _updateManager.GetMinValueBoredomIncrease(),
+                _updateManager.GetMaxValueBoredomIncrease(),
+                _updateManager.GetMinValueSleepIncrease(),
+                _updateManager.GetMaxValueSleepIncrease(),
+                _updateManager.GetMinValueHungerIncrease(),
+                _updateManager.GetMaxValueHungerIncrease(),
+                RuleFactory.GetRuleFor(RuleEnum.STARVING).RuleStatus,
+                RuleFactory.GetRuleFor(RuleEnum.LETHARGIC).RuleStatus,
+                RuleFactory.GetRuleFor(RuleEnum.MUNCHIES).RuleStatus,
+                RuleFactory.GetRuleFor(RuleEnum.CRAZY).RuleStatus,
+                _updateManager.Frequency,
+                _actionManager.GetCleanCountdown(),
+                _actionManager.GetPlayCountdown(),
+                _actionManager.GetFeedCountdown(),
+                _actionManager.GetSleepCountdown(),
+                _actionManager.GetSleepValue(),
+                _actionManager.GetCleanValue(),
+                _actionManager.GetFeedValue(),
+                _actionManager.GetPlayValue()
+                );
+        }
+
+        public void SetSettings(Settings settings)
+        {
+            _updateManager.ChangeBoredomIncreaserValues(settings.MinBoreDomIncrease, settings.MaxBoreDomIncrease);
+            _updateManager.ChangeHungerIncreaserValues(settings.MinHungerIncrease, settings.MaxHungerIncrease);
+            _updateManager.ChangeSleepIncreaserValues(settings.MinSleepIncrease, settings.MaxSleepIncrease);
+
+            _actionManager.ChangeActionCountdown(settings.CleanCountdown,ActionEnum.CLEAN);
+            _actionManager.ChangeActionCountdown(settings.SleepCountdown, ActionEnum.SLEEP);
+            _actionManager.ChangeActionCountdown(settings.FeedCountdown, ActionEnum.FEED);
+            _actionManager.ChangeActionCountdown(settings.PlayCountdown, ActionEnum.PLAY);
+
+            _actionManager.ChangeActionValue(settings.CleanValue, ActionEnum.CLEAN);
+            _actionManager.ChangeActionValue(settings.SleepValue, ActionEnum.SLEEP);
+            _actionManager.ChangeActionValue(settings.FeedValue, ActionEnum.FEED);
+            _actionManager.ChangeActionValue(settings.PlayValue, ActionEnum.PLAY);
+
+            _updateManager.ChangeUpdateFrequency(settings.UpdateFrequency);
+            RuleFactory.RuleApplied(settings.CrazyRule, RuleEnum.CRAZY);
+            RuleFactory.RuleApplied(settings.LethargicRule, RuleEnum.LETHARGIC);
+            RuleFactory.RuleApplied(settings.MunchiesRule, RuleEnum.MUNCHIES);
+            RuleFactory.RuleApplied(settings.StarvingRule, RuleEnum.STARVING);
+            
         }
     }
 }

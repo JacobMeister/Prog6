@@ -101,11 +101,18 @@ namespace Prog6_Eindopdracht.ASP.Controllers
             return View();
         }
 
-        [HttpGet]
+
         public ActionResult ResetTamagotchis()
         {
             _service.ResetTamagotchis();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Settings()
+        {
+            //SettingsModel settings = new SettingsModel();
+
+            return View();
         }
     }
 }

@@ -31,6 +31,7 @@
       <xsd:import schemaLocation="http://tamagotchiservicebenmaarten.azurewebsites.net/TamagotchiService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://tamagotchiservicebenmaarten.azurewebsites.net/TamagotchiService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TamagotchiService.Data" />
       <xsd:import schemaLocation="http://tamagotchiservicebenmaarten.azurewebsites.net/TamagotchiService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+      <xsd:import schemaLocation="http://tamagotchiservicebenmaarten.azurewebsites.net/TamagotchiService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/TamagotchiService" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ITamagotchiService_GetTamagotchis_InputMessage">
@@ -111,17 +112,23 @@
   <wsdl:message name="ITamagotchiService_GetUpdateFrequency_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUpdateFrequencyResponse" />
   </wsdl:message>
-  <wsdl:message name="ITamagotchiService_ChangeUpdateFrequency_InputMessage">
-    <wsdl:part name="parameters" element="tns:ChangeUpdateFrequency" />
-  </wsdl:message>
-  <wsdl:message name="ITamagotchiService_ChangeUpdateFrequency_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ChangeUpdateFrequencyResponse" />
-  </wsdl:message>
   <wsdl:message name="ITamagotchiService_ResetTamagotchis_InputMessage">
     <wsdl:part name="parameters" element="tns:ResetTamagotchis" />
   </wsdl:message>
   <wsdl:message name="ITamagotchiService_ResetTamagotchis_OutputMessage">
     <wsdl:part name="parameters" element="tns:ResetTamagotchisResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITamagotchiService_GetCurrentSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentSettings" />
+  </wsdl:message>
+  <wsdl:message name="ITamagotchiService_GetCurrentSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITamagotchiService_SetSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetSettings" />
+  </wsdl:message>
+  <wsdl:message name="ITamagotchiService_SetSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetSettingsResponse" />
   </wsdl:message>
   <wsdl:portType name="ITamagotchiService">
     <wsdl:operation name="GetTamagotchis">
@@ -176,13 +183,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITamagotchiService/GetUpdateFrequency" message="tns:ITamagotchiService_GetUpdateFrequency_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITamagotchiService/GetUpdateFrequencyResponse" message="tns:ITamagotchiService_GetUpdateFrequency_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ChangeUpdateFrequency">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITamagotchiService/ChangeUpdateFrequency" message="tns:ITamagotchiService_ChangeUpdateFrequency_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITamagotchiService/ChangeUpdateFrequencyResponse" message="tns:ITamagotchiService_ChangeUpdateFrequency_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="ResetTamagotchis">
       <wsdl:input wsaw:Action="http://tempuri.org/ITamagotchiService/ResetTamagotchis" message="tns:ITamagotchiService_ResetTamagotchis_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITamagotchiService/ResetTamagotchisResponse" message="tns:ITamagotchiService_ResetTamagotchis_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITamagotchiService/GetCurrentSettings" message="tns:ITamagotchiService_GetCurrentSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITamagotchiService/GetCurrentSettingsResponse" message="tns:ITamagotchiService_GetCurrentSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITamagotchiService/SetSettings" message="tns:ITamagotchiService_SetSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITamagotchiService/SetSettingsResponse" message="tns:ITamagotchiService_SetSettings_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ITamagotchiService" type="tns:ITamagotchiService">
@@ -304,8 +315,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ChangeUpdateFrequency">
-      <soap:operation soapAction="http://tempuri.org/ITamagotchiService/ChangeUpdateFrequency" style="document" />
+    <wsdl:operation name="ResetTamagotchis">
+      <soap:operation soapAction="http://tempuri.org/ITamagotchiService/ResetTamagotchis" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -313,8 +324,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ResetTamagotchis">
-      <soap:operation soapAction="http://tempuri.org/ITamagotchiService/ResetTamagotchis" style="document" />
+    <wsdl:operation name="GetCurrentSettings">
+      <soap:operation soapAction="http://tempuri.org/ITamagotchiService/GetCurrentSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetSettings">
+      <soap:operation soapAction="http://tempuri.org/ITamagotchiService/SetSettings" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -443,8 +463,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ChangeUpdateFrequency">
-      <soap:operation soapAction="http://tempuri.org/ITamagotchiService/ChangeUpdateFrequency" style="document" />
+    <wsdl:operation name="ResetTamagotchis">
+      <soap:operation soapAction="http://tempuri.org/ITamagotchiService/ResetTamagotchis" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -452,8 +472,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ResetTamagotchis">
-      <soap:operation soapAction="http://tempuri.org/ITamagotchiService/ResetTamagotchis" style="document" />
+    <wsdl:operation name="GetCurrentSettings">
+      <soap:operation soapAction="http://tempuri.org/ITamagotchiService/GetCurrentSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetSettings">
+      <soap:operation soapAction="http://tempuri.org/ITamagotchiService/SetSettings" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

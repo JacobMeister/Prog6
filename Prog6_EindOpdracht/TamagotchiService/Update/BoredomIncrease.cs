@@ -13,6 +13,16 @@ namespace TamagotchiService.Update
         private int _minIncrease;
         private int _maxIncrease;
 
+        public int MaxValue
+        {
+            get { return _maxIncrease; }
+        }
+
+        public int MinValue
+        {
+            get { return _minIncrease; }
+        }
+
         public IRule Rule { get; private set; }
 
         public void ExecuteIncrement(Tamagotchi tamagotchi)

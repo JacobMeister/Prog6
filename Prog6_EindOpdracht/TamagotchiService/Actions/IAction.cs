@@ -9,9 +9,11 @@ namespace TamagotchiService.Actions
 {
     public interface IAction
     {
-        IRule Crazy { get; }
+        IRule Crazy { get;}
 
-        int Countdown { get; }
+        int Countdown { get; set; }
+
+        int Value { get; set; }
 
         string ActionName { get; }
 

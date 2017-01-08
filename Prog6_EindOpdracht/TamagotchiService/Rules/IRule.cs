@@ -9,6 +9,8 @@ namespace TamagotchiService.Rules
 {
     public interface IRule
     {
+        bool RuleStatus { get; set; }
+
         bool ExecuteRule(Tamagotchi tamagotchi);
     }
 }

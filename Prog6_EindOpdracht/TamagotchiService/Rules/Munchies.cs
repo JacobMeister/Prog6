@@ -8,9 +8,11 @@ namespace TamagotchiService.Rules
 {
     public class Munchies : IRule
     {
+        public bool RuleStatus { get; set; }
+
         public bool ExecuteRule(Tamagotchi tamagotchi)
         {
-            return tamagotchi.Boredom > 80;
+            return tamagotchi.Boredom > 80 && RuleStatus;
         }
     }
 }

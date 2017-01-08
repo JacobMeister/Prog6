@@ -8,9 +8,11 @@ namespace TamagotchiService.Rules
 {
     public class Lethargic : IRule
     {
+        public bool RuleStatus { get; set; }
+
         public bool ExecuteRule(Tamagotchi tamagotchi)
         {
-            return tamagotchi.Sleep > 80;
+            return tamagotchi.Sleep > 80 && RuleStatus;
         }
     }
 }

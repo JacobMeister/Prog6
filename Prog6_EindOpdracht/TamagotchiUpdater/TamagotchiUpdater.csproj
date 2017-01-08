@@ -101,6 +101,12 @@
     <None Include="Service References\TamagotchiService\TamagotchiService3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\TamagotchiService\TamagotchiService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TamagotchiService\TamagotchiUpdater.TamagotchiService.Settings.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\TamagotchiService\TamagotchiUpdater.TamagotchiService.Tamagotchi.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

@@ -52,9 +52,84 @@ namespace TamagotchiService
         int GetUpdateFrequency();
 
         [OperationContract]
-        void ChangeUpdateFrequency(int amount);
+        void ResetTamagotchis();
 
         [OperationContract]
-        void ResetTamagotchis();
+        Settings GetCurrentSettings();
+
+        [OperationContract]
+        void SetSettings(Settings settings);
+
+    }
+
+    [DataContract]
+    public class Settings
+    {
+        [DataMember]
+        public int MinBoreDomIncrease { get; set; }
+        [DataMember]
+        public int MaxBoreDomIncrease { get; set; }
+
+        [DataMember]
+        public int MinSleepIncrease { get; set; }
+        [DataMember]
+        public int MaxSleepIncrease { get; set; }
+
+        [DataMember]
+        public int MinHungerIncrease { get; set; }
+        [DataMember]
+        public int MaxHungerIncrease { get; set; }
+
+        [DataMember]
+        public bool StarvingRule { get; set; }
+        [DataMember]
+        public bool LethargicRule { get; set; }
+        [DataMember]
+        public bool MunchiesRule { get; set; }
+        [DataMember]
+        public bool CrazyRule { get; set; }
+
+        [DataMember]
+        public int UpdateFrequency { get; set; }
+
+        [DataMember]
+        public int CleanCountdown { get; set; }
+        [DataMember]
+        public int PlayCountdown { get; set; }
+        [DataMember]
+        public int FeedCountdown { get; set; }
+        [DataMember]
+        public int SleepCountdown { get; set; }
+        [DataMember]
+        public int CleanValue { get; set; }
+        [DataMember]
+        public int SleepValue { get; set; }
+        [DataMember]
+        public int FeedValue { get; set; }
+        [DataMember]
+        public int PlayValue { get; set; }
+
+        public Settings(int minBoreDomIncrease, int maxBoreDomIncrease, int minSleepIncrease, int maxSleepIncrease, int minHungerIncrease, int maxHungerIncrease, bool starvingRule, bool lethargicRule, bool munchiesRule, bool crazyRule, int updateFrequency, int cleanCountdown, int playCountdown, int feedCountdown, int sleepCountdown, int sleepValue, int cleanValue, int feedValue, int playValue)
+        {
+            MinBoreDomIncrease = minBoreDomIncrease;
+            MaxBoreDomIncrease = maxBoreDomIncrease;
+            MinSleepIncrease = minSleepIncrease;
+            MaxSleepIncrease = maxSleepIncrease;
+            MinHungerIncrease = minHungerIncrease;
+            MaxHungerIncrease = maxHungerIncrease;
+            StarvingRule = starvingRule;
+            LethargicRule = lethargicRule;
+            MunchiesRule = munchiesRule;
+            CrazyRule = crazyRule;
+            UpdateFrequency = updateFrequency;
+            CleanCountdown = cleanCountdown;
+            PlayCountdown = playCountdown;
+            FeedCountdown = feedCountdown;
+            SleepCountdown = sleepCountdown;
+            CleanValue = cleanValue;
+            SleepValue = sleepValue;
+            FeedValue = feedValue;
+            PlayValue = playValue;
+        }
     }
 }

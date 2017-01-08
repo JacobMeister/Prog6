@@ -27,19 +27,6 @@ namespace TamagotchiService.Actions
             _countDown = new Dictionary<int, KeyValuePair<int, string>>();
         }
 
-        private void FillDictionary(IEnumerable<Tamagotchi> tamagotchis)
-        {
-            foreach (var tamagotchi in tamagotchis)
-            {
-                AddTamagotchiToDictionary(tamagotchi);
-            }
-        }
-
-        public void AddTamagotchiToDictionary(Tamagotchi tamagotchi)
-        {
-            _countDown.Add(tamagotchi.ID, new KeyValuePair<int, string>(0, ""));
-        }
-
         public void DeleteTamagotchiFromDictionary(Tamagotchi tamagotchi)
         {
             _countDown.Remove(tamagotchi.ID);
@@ -98,6 +85,78 @@ namespace TamagotchiService.Actions
             DeleteTamagotchiFromDictionary(tamagotchi);
             _countDown.Add(tamagotchi.ID, pair);
             tamagotchi.DateOfLastAcces = DateTime.Now;
+        }
+
+        public void ChangeActionCountdown(int amount, ActionEnum action)
+        {
+            switch (action)
+            {
+                case ActionEnum.FEED:
+                    _feed.Countdown = amount;
+                    break;
+                case ActionEnum.PLAY:
+                    _play.Countdown = amount;
+                    break;
+                case ActionEnum.SLEEP:
+                    _sleep.Countdown = amount;
+                    break;
+                case ActionEnum.CLEAN:
+                    _clean.Countdown = amount;
+                    break;
+            }
+        }
+
+        public void ChangeActionValue(int amount, ActionEnum action)
+        {
+            switch (action)
+            {
+                case ActionEnum.FEED:
+                    _feed.Value = amount;
+                    break;
+                case ActionEnum.PLAY:
+                    _play.Value = amount;
+                    break;
+                case ActionEnum.SLEEP:
+                    _sleep.Value = amount;
+                    break;
+                case ActionEnum.CLEAN:
+                    _clean.Value = amount;
+                    break;
+            }
+        }
+
+        public int GetCleanCountdown()
+        {
+            return _clean.Countdown;
+        }
+        public int GetFeedCountdown()
+        {
+            return _feed.Countdown;
+        }
+        public int GetPlayCountdown()
+        {
+            return _play.Countdown;
+        }
+        public int GetSleepCountdown()
+        {
+            return _sleep.Countdown;
+        }
+
+        public int GetCleanValue()
+        {
+            return _clean.Value;
+        }
+        public int GetFeedValue()
+        {
+            return _feed.Value;
+        }
+        public int GetPlayValue()
+        {
+            return _play.Value;
+        }
+        public int GetSleepValue()
+        {
+            return _sleep.Value;
         }
     }
 }

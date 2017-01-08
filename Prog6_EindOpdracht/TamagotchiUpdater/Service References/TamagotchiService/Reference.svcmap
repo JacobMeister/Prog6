@@ -24,6 +24,7 @@
   <Metadata>
     <MetadataFile FileName="TamagotchiService.wsdl" MetadataType="Wsdl" ID="57314f77-493a-4575-bd9c-0b3795e2b85c" SourceId="1" SourceUrl="http://tamagotchiservicebenmaarten.azurewebsites.net/TamagotchiService.svc?wsdl" />
     <MetadataFile FileName="TamagotchiService.xsd" MetadataType="Schema" ID="b7e7e8a4-6764-4238-87ea-9565bac8c454" SourceId="1" SourceUrl="http://tamagotchiservicebenmaarten.azurewebsites.net/TamagotchiService.svc?xsd=xsd3" />
+    <MetadataFile FileName="TamagotchiService4.xsd" MetadataType="Schema" ID="5bdb22f9-8f57-4c78-8d3a-9502204b01af" SourceId="1" SourceUrl="http://tamagotchiservicebenmaarten.azurewebsites.net/TamagotchiService.svc?xsd=xsd4" />
     <MetadataFile FileName="TamagotchiService1.xsd" MetadataType="Schema" ID="f22ca96a-0084-43af-99e7-a069f36a3462" SourceId="1" SourceUrl="http://tamagotchiservicebenmaarten.azurewebsites.net/TamagotchiService.svc?xsd=xsd0" />
     <MetadataFile FileName="TamagotchiService2.xsd" MetadataType="Schema" ID="fa8f9b33-4e68-46a2-a22f-ba6958b9a323" SourceId="1" SourceUrl="http://tamagotchiservicebenmaarten.azurewebsites.net/TamagotchiService.svc?xsd=xsd1" />
     <MetadataFile FileName="TamagotchiService.disco" MetadataType="Disco" ID="1822fb8a-02a5-4cfc-8985-37f8ed241583" SourceId="1" SourceUrl="http://tamagotchiservicebenmaarten.azurewebsites.net/TamagotchiService.svc?disco" />

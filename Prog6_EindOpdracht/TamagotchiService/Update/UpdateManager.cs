@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using TamagotchiService.Data;
@@ -13,17 +14,18 @@ namespace TamagotchiService.Update
         private BoredomIncrease _boredomIncrease;
         private HungerIncrease _hungerIncrease;
         private SleepIncrease _sleepIncrease;
-        private IEnumerable<IRule> _rules;
+ 
 
         public int Frequency { get; set; }
 
-        public UpdateManager(IEnumerable<IRule> rules )
+        public UpdateManager()
         {
-            _rules = rules;
             _boredomIncrease = new BoredomIncrease(15, 35);
             _hungerIncrease = new HungerIncrease(15, 35);
-            _hungerIncrease.setMunchiesRule( RuleFactory.GetRuleFor(RuleEnum.MUNCHIES));
+            _hungerIncrease.SetMunchiesRule( RuleFactory.GetRuleFor(RuleEnum.MUNCHIES));
+            _hungerIncrease.SetStarvingRule(RuleFactory.GetRuleFor(RuleEnum.STARVING));
             _sleepIncrease = new SleepIncrease(15, 35);
+            _sleepIncrease.SetLethargicRule(RuleFactory.GetRuleFor(RuleEnum.LETHARGIC));
             Frequency = 10;
         }
 
@@ -38,7 +40,8 @@ namespace TamagotchiService.Update
             _boredomIncrease.ExecuteIncrement(tamagotchi);
             _sleepIncrease.ExecuteIncrement(tamagotchi);
             _hungerIncrease.ExecuteIncrement(tamagotchi);
-            tamagotchi.Age += 10;
+            _hungerIncrease.ExecuteStarvingRule(tamagotchi);
+            tamagotchi.Age += Frequency;
         }
 
         public void ValidTamagotchiProperties(Tamagotchi tamagotchi)
@@ -81,6 +84,33 @@ namespace TamagotchiService.Update
             tamagotchi.DateOfLastAcces = DateTime.Now;
             tamagotchi.Hunger = 0;
             tamagotchi.Sleep = 0;
+        }
+
+        public int GetMinValueHungerIncrease()
+        {
+            return _hungerIncrease.MinValue;
+        }
+        public int GetMaxValueHungerIncrease()
+        {
+            return _hungerIncrease.MaxValue;
+        }
+
+        public int GetMinValueSleepIncrease()
+        {
+            return _sleepIncrease.MinValue;
+        }
+        public int GetMaxValueSleepIncrease()
+        {
+            return _sleepIncrease.MaxValue;
+        }
+
+        public int GetMinValueBoredomIncrease()
+        {
+            return _boredomIncrease.MinValue;
+        }
+        public int GetMaxValueBoredomIncrease()
+        {
+            return _boredomIncrease.MaxValue;
         }
     }
 }
