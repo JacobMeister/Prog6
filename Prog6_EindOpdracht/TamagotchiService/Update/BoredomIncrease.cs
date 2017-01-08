@@ -17,7 +17,7 @@ namespace TamagotchiService.Update
 
         public void ExecuteIncrement(Tamagotchi tamagotchi)
         {
-            tamagotchi.Boredom += new Random().Next(_minIncrease, _maxIncrease + 1);
+            tamagotchi.Boredom += new Random(Guid.NewGuid().GetHashCode()).Next(_minIncrease, _maxIncrease + 1);
         }
 
         public void UpdatePropertyIncreasers(int min, int max)

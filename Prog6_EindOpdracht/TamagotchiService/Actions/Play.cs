@@ -28,8 +28,8 @@ namespace TamagotchiService.Actions
         public void ExecuteAction(Tamagotchi tamagotchi)
         {
             tamagotchi.Boredom -= 35;
-            if (new Random().Next(0, 5) == 0) tamagotchi.Health -= 10;
-            if (Crazy.ExecuteRule(tamagotchi) && new Random().Next(0, 2) == 0) tamagotchi.Health = 0;
+            if (new Random(Guid.NewGuid().GetHashCode()).Next(0, 5) == 0) tamagotchi.Health -= 10;
+            if (Crazy.ExecuteRule(tamagotchi) && new Random(Guid.NewGuid().GetHashCode()).Next(0, 2) == 0) tamagotchi.Health = 0;
         }
     }
 }

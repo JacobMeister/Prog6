@@ -257,6 +257,12 @@ namespace Prog6_Eindopdracht.ASP.TamagotchiService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/ChangeUpdateFrequency", ReplyAction="http://tempuri.org/ITamagotchiService/ChangeUpdateFrequencyResponse")]
         System.Threading.Tasks.Task ChangeUpdateFrequencyAsync(int amount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/ResetTamagotchis", ReplyAction="http://tempuri.org/ITamagotchiService/ResetTamagotchisResponse")]
+        void ResetTamagotchis();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/ResetTamagotchis", ReplyAction="http://tempuri.org/ITamagotchiService/ResetTamagotchisResponse")]
+        System.Threading.Tasks.Task ResetTamagotchisAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -396,6 +402,14 @@ namespace Prog6_Eindopdracht.ASP.TamagotchiService {
         
         public System.Threading.Tasks.Task ChangeUpdateFrequencyAsync(int amount) {
             return base.Channel.ChangeUpdateFrequencyAsync(amount);
+        }
+        
+        public void ResetTamagotchis() {
+            base.Channel.ResetTamagotchis();
+        }
+        
+        public System.Threading.Tasks.Task ResetTamagotchisAsync() {
+            return base.Channel.ResetTamagotchisAsync();
         }
     }
 }

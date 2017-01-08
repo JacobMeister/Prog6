@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using TamagotchiService.Data;
+using TamagotchiService.Factories;
 using TamagotchiService.Rules;
 
 namespace TamagotchiService.Update
@@ -21,6 +22,7 @@ namespace TamagotchiService.Update
             _rules = rules;
             _boredomIncrease = new BoredomIncrease(15, 35);
             _hungerIncrease = new HungerIncrease(15, 35);
+            _hungerIncrease.setMunchiesRule( RuleFactory.GetRuleFor(RuleEnum.MUNCHIES));
             _sleepIncrease = new SleepIncrease(15, 35);
             Frequency = 10;
         }
@@ -43,12 +45,17 @@ namespace TamagotchiService.Update
         {
             
             if (tamagotchi.Hunger < 0) tamagotchi.Hunger = 0;
+            if (tamagotchi.Hunger > 100) tamagotchi.Hunger = 100;
           
             if (tamagotchi.Sleep < 0) tamagotchi.Sleep = 0;
+            if (tamagotchi.Sleep > 100) tamagotchi.Sleep = 100;
             
             if (tamagotchi.Boredom < 0) tamagotchi.Boredom = 0;
-          
+            if (tamagotchi.Boredom > 100) tamagotchi.Boredom = 100;
+
+            if (tamagotchi.Health < 0) tamagotchi.Health = 0;
             if (tamagotchi.Health > 100) tamagotchi.Health = 100;
+
         }
 
         public void ChangeBoredomIncreaserValues(int min, int max)
@@ -64,6 +71,16 @@ namespace TamagotchiService.Update
         public void ChangeHungerIncreaserValues(int min, int max)
         {
             _hungerIncrease.UpdatePropertyIncreasers(min, max);
+        }
+
+        public void ResetTamagotchi(Tamagotchi tamagotchi)
+        {
+            tamagotchi.Health = 100;
+            tamagotchi.Age = 0;
+            tamagotchi.Boredom = 0;
+            tamagotchi.DateOfLastAcces = DateTime.Now;
+            tamagotchi.Hunger = 0;
+            tamagotchi.Sleep = 0;
         }
     }
 }

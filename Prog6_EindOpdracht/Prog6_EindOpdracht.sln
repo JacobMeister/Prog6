@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prog6_Eindopdracht.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TamagotchiService", "TamagotchiService\TamagotchiService.csproj", "{0BEE516B-369A-479D-9FBE-05711E0DB594}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prog6_Eindopdracht.Updater", "Prog6_Eindopdracht.Updater\Prog6_Eindopdracht.Updater.csproj", "{CD531CAA-1E39-4D2D-8795-48C6A59C3520}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TamagotchiUpdater", "TamagotchiUpdater\TamagotchiUpdater.csproj", "{77DF0D4B-1C07-407E-A304-A660F5344D6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +43,10 @@ Global
 		{0BEE516B-369A-479D-9FBE-05711E0DB594}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BEE516B-369A-479D-9FBE-05711E0DB594}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BEE516B-369A-479D-9FBE-05711E0DB594}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CD531CAA-1E39-4D2D-8795-48C6A59C3520}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD531CAA-1E39-4D2D-8795-48C6A59C3520}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD531CAA-1E39-4D2D-8795-48C6A59C3520}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD531CAA-1E39-4D2D-8795-48C6A59C3520}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77DF0D4B-1C07-407E-A304-A660F5344D6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77DF0D4B-1C07-407E-A304-A660F5344D6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77DF0D4B-1C07-407E-A304-A660F5344D6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77DF0D4B-1C07-407E-A304-A660F5344D6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

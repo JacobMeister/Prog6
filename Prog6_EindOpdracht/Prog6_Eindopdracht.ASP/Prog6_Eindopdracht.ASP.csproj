@@ -37,6 +37,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
@@ -200,6 +201,7 @@
     <None Include="Service References\TamagotchiService\TamagotchiService3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\Tamagotchis\Reset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

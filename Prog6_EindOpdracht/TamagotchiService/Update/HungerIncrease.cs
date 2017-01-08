@@ -16,8 +16,18 @@ namespace TamagotchiService.Update
 
         public void ExecuteIncrement(Tamagotchi tamagotchi)
         {
-            tamagotchi.Hunger += new Random().Next(minIncrease, maxIncrease + 1);
-            if (tamagotchi.Hunger > 100) tamagotchi.Hunger = 100;
+            var increase = new Random(Guid.NewGuid().GetHashCode()).Next(minIncrease, maxIncrease + 1);
+            tamagotchi.Hunger += increase;
+            if (Rule == null) return;
+            if (Rule.ExecuteRule(tamagotchi))
+            {
+                tamagotchi.Hunger += increase;
+            }
+        }
+
+        public void setMunchiesRule(IRule rule)
+        {
+            Rule = rule;
         }
 
         public void UpdatePropertyIncreasers(int min, int max)

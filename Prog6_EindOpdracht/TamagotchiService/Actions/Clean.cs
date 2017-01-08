@@ -32,7 +32,7 @@ namespace TamagotchiService.Actions
             tamagotchi.Boredom -= 10;
             tamagotchi.Sleep -= 10;
             tamagotchi.Health += 10;
-            if (Crazy.ExecuteRule(tamagotchi) && new Random().Next(0, 2) == 0) tamagotchi.Health = 0;
+            if (Crazy.ExecuteRule(tamagotchi) && new Random(Guid.NewGuid().GetHashCode()).Next(0, 2) == 0) tamagotchi.Health = 0;
         }
     }
 }

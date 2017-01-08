@@ -76,7 +76,7 @@ namespace TamagotchiService
             var context = new Prog6_Entities();
             var tamagotchi = context.Tamagotchi.Find(id);
 
-            if (tamagotchi.Health == 0) return dead;
+            if (tamagotchi.Health <= 0) return dead;
 
             var listOfProperties = new List<int>
             {
@@ -198,6 +198,18 @@ namespace TamagotchiService
         public void ChangeUpdateFrequency(int amount)
         {
             _updateManager.Frequency = amount;
+        }
+
+        public void ResetTamagotchis()
+        {
+            using (var context = new Prog6_Entities())
+            {
+                foreach (var tamagotchi in context.Tamagotchi.ToList())
+                {
+                    _updateManager.ResetTamagotchi(tamagotchi);
+                }
+                context.SaveChanges();
+            }
         }
     }
 }

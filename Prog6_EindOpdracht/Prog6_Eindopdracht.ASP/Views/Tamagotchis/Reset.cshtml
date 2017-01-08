@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Reset";
+}
+
+<h2>Do you wish to reset your Tamagotchi's?</h2>
+<p>
+    @Html.ActionLink("Reset my Tamagotchi's!", "ResetTamagotchis")
+</p>
+@Html.ActionLink("Back to Tamagotchi Overview", "Index")
+
+

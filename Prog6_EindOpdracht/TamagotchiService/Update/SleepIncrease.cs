@@ -16,8 +16,7 @@ namespace TamagotchiService.Update
 
         public void ExecuteIncrement(Tamagotchi tamagotchi)
         {
-            tamagotchi.Sleep += new Random().Next(minIncrease, maxIncrease + 1);
-            if (tamagotchi.Sleep > 100) tamagotchi.Sleep = 100;
+            tamagotchi.Sleep += new Random(Guid.NewGuid().GetHashCode()).Next(minIncrease, maxIncrease + 1);
         }
 
         public void UpdatePropertyIncreasers(int min, int max)

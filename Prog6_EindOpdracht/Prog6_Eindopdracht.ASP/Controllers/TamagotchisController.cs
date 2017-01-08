@@ -95,5 +95,17 @@ namespace Prog6_Eindopdracht.ASP.Controllers
             _service.DeleteTamagotchi(ID);
             return RedirectToAction("Index");
         }
+
+        public ActionResult Reset()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult ResetTamagotchis()
+        {
+            _service.ResetTamagotchis();
+            return RedirectToAction("Index");
+        }
     }
 }

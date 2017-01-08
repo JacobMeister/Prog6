@@ -53,5 +53,8 @@ namespace TamagotchiService
 
         [OperationContract]
         void ChangeUpdateFrequency(int amount);
+
+        [OperationContract]
+        void ResetTamagotchis();
     }
 }
