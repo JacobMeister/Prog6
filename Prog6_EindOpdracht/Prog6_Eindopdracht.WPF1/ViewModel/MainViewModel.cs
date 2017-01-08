@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using Prog6_Eindopdracht.WPF;
+using System.Windows.Controls;
+using GalaSoft.MvvmLight;
 using Prog6_Eindopdracht.WPF1.Model;
 using Prog6_Eindopdracht.WPF1.TamagotchiService;
 
@@ -14,7 +15,7 @@ namespace Prog6_Eindopdracht.WPF1.ViewModel
     /// See http://www.mvvmlight.net
     /// </para>
     /// </summary>
-    public class MainViewModel
+    public class MainViewModel : ViewModelBase
     {
         private List<Tamagotchi> tgList = new List<Tamagotchi>();
         private ITamagotchiService TGS;
@@ -49,20 +50,23 @@ namespace Prog6_Eindopdracht.WPF1.ViewModel
             {
                 tgList = value;
                 ConvertTamagotchis();
+                RaisePropertyChanged("CustomTGList");              
             }
         }
 
         public void ConvertTamagotchis()
         {
+            customTGList = new List<CustomTamagotchi>();
             foreach (Tamagotchi tg in tgList)
             {
-                customTGList = new List<CustomTamagotchi>();
+                
                 var tmg = new CustomTamagotchi
                 {
                     Name = tg.Name,
                     Health = HealthSet(tg),
                     Status = StatusSet(tg)
                 };
+                CustomTGList.Add(tmg);
             }
         }
 

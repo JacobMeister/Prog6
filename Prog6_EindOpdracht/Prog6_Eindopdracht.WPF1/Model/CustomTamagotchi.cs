@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media.Imaging;
-
-namespace Prog6_Eindopdracht.WPF
+﻿namespace Prog6_Eindopdracht.WPF1.Model
 {
     public class CustomTamagotchi
     {
