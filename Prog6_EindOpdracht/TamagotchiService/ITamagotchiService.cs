@@ -25,9 +25,6 @@ namespace TamagotchiService
         Tamagotchi GeTamagotchi(int id);
 
         [OperationContract]
-        string GetCurrentTamagotchiStatus(int id);
-
-        [OperationContract]
         bool CanActionBePerformed(int id);
 
         [OperationContract]

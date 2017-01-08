@@ -40,7 +40,6 @@ namespace Prog6_Eindopdracht.ASP.Controllers
                return RedirectToAction("Index");
             }
             TamagotchiModel tamagotchiModel = new TamagotchiModel(tamagotchi);
-            ViewBag.Status = _service.GetCurrentTamagotchiStatus(id);
             return View(tamagotchiModel);
         }
 
@@ -136,7 +135,13 @@ namespace Prog6_Eindopdracht.ASP.Controllers
         public ActionResult Sleep(int id)
         {
             if (!_service.CanActionBePerformed(id))
-                return RedirectToAction("ActionFailed", _service.CountdownAndPerformingAction(id));
+            {              
+                var pair = _service.CountdownAndPerformingAction(id);
+                 int returnInt = pair.Key;
+                string returnString = pair.Value;
+                return RedirectToAction("ActionFailed",
+                    new { remainingCountdown = returnInt, actionPerformed = returnString });
+            }
             _service.SleepWithTamagotchi(id);
             return RedirectToAction("Details",new {ID = id});
         }
@@ -144,7 +149,13 @@ namespace Prog6_Eindopdracht.ASP.Controllers
         public ActionResult Clean(int id)
         {
             if (!_service.CanActionBePerformed(id))
-                return RedirectToAction("ActionFailed", _service.CountdownAndPerformingAction(id));
+            {
+                var pair = _service.CountdownAndPerformingAction(id);
+                int returnInt = pair.Key;
+                string returnString = pair.Value;
+                return RedirectToAction("ActionFailed",
+                    new { remainingCountdown = returnInt, actionPerformed = returnString });
+            }
             _service.CleanTamagotchi(id);
             return RedirectToAction("Details", new { ID = id });
         }
@@ -152,7 +163,13 @@ namespace Prog6_Eindopdracht.ASP.Controllers
         public ActionResult Feed(int id)
         {
             if (!_service.CanActionBePerformed(id))
-                return RedirectToAction("ActionFailed", _service.CountdownAndPerformingAction(id));
+            {
+                var pair = _service.CountdownAndPerformingAction(id);
+                int returnInt = pair.Key;
+                string returnString = pair.Value;
+                return RedirectToAction("ActionFailed",
+                    new { remainingCountdown = returnInt, actionPerformed = returnString });
+            }
             _service.FeedTamagotchi(id);
             return RedirectToAction("Details", new { ID = id });
         }
@@ -160,15 +177,21 @@ namespace Prog6_Eindopdracht.ASP.Controllers
         public ActionResult Play(int id)
         {
             if (!_service.CanActionBePerformed(id))
-                return RedirectToAction("ActionFailed", _service.CountdownAndPerformingAction(id));
+            {
+                var pair = _service.CountdownAndPerformingAction(id);
+                int returnInt = pair.Key;
+                string returnString = pair.Value;
+                return RedirectToAction("ActionFailed",
+                    new { remainingCountdown = returnInt, actionPerformed = returnString });
+            }
             _service.PlayWithTamagotchi(id);
             return RedirectToAction("Details", new { ID = id });
         }
 
-        public ActionResult ActionFailed(KeyValuePair<int, string> countdownAction)
+        public ActionResult ActionFailed(int remainingCountdown, string actionPerformed)
         {
-            ViewBag.RemainingCountdown = countdownAction.Key;
-            ViewBag.ActionPerformed = countdownAction.Value;
+            ViewBag.RemainingCountdown = remainingCountdown;
+            ViewBag.ActionPerformed = actionPerformed;
             return View();
         }
     }

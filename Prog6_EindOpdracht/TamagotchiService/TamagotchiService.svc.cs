@@ -64,57 +64,6 @@ namespace TamagotchiService
             return context.Tamagotchi.Find(id);
         }
 
-        public string GetCurrentTamagotchiStatus(int id)
-        {
-            string returnString;
-            var maxBoredom = "poop";
-            var maxHunger = "hungry";
-            var maxSleep = "sleepy";
-            var happy = "happy";
-            var dead = "dead";
-
-            var context = new Prog6_Entities();
-            var tamagotchi = context.Tamagotchi.Find(id);
-
-            if (tamagotchi.Health <= 0) return dead;
-
-            var listOfProperties = new List<int>
-            {
-                tamagotchi.Boredom,
-                tamagotchi.Hunger,
-                tamagotchi.Sleep
-            };
-
-            var maxPropertyIndex = -1;
-            var maxTotal = 0;
-
-            for (var i = 0; i < listOfProperties.Count; i++)
-            {
-                if (listOfProperties[i] < maxTotal || listOfProperties[i] < 50) continue;
-                maxTotal = listOfProperties[i];
-                maxPropertyIndex = i;
-            }
-
-            switch (maxPropertyIndex)
-            {
-                case 0:
-                    returnString = maxBoredom;
-                    break;
-                case 1:
-                    returnString = maxHunger;
-                    break;
-                case 2:
-                    returnString = maxSleep;
-                    break;
-                default:
-                    returnString = happy;
-                    break;
-            }
-            return returnString;
-
-
-        }
-
         public bool CanActionBePerformed(int id)
         {
             var context = new Prog6_Entities(); 
@@ -134,6 +83,7 @@ namespace TamagotchiService
             var context = new Prog6_Entities();
             var tamagotchi = context.Tamagotchi.Find(id);
             if (tamagotchi == null) return; //return not valid if the ID doesn't match with database records
+            if (tamagotchi.Health <= 0) return;
 
             _actionManager.DoFeed(tamagotchi);
             _updateManager.ValidTamagotchiProperties(tamagotchi);
@@ -146,6 +96,7 @@ namespace TamagotchiService
             var context = new Prog6_Entities();
             var tamagotchi = context.Tamagotchi.Find(id);
             if (tamagotchi == null) return; //return not valid if the ID doesn't match with database records
+            if (tamagotchi.Health <= 0) return;
 
             _actionManager.DoPlay(tamagotchi);
             _updateManager.ValidTamagotchiProperties(tamagotchi);
@@ -157,6 +108,7 @@ namespace TamagotchiService
             var context = new Prog6_Entities();
             var tamagotchi =context.Tamagotchi.Find(id);
             if (tamagotchi == null) return; //return not valid if the ID doesn't match with database records
+            if (tamagotchi.Health <= 0) return;
 
             _actionManager.DoSleep(tamagotchi);
             _updateManager.ValidTamagotchiProperties(tamagotchi);
@@ -169,6 +121,7 @@ namespace TamagotchiService
             var context = new Prog6_Entities();
             var tamagotchi = context.Tamagotchi.Find(id);
             if (tamagotchi == null) return; //return not valid if the ID doesn't match with database records
+            if (tamagotchi.Health <= 0) return;
 
             _actionManager.DoClean(tamagotchi);
             _updateManager.ValidTamagotchiProperties(tamagotchi);

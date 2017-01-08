@@ -140,6 +140,11 @@
     <Content Include="Content\images\hungry.gif" />
     <Content Include="Content\images\poop.gif" />
     <Content Include="Content\images\sleepy.gif" />
+    <Content Include="Content\images\stijnhungry.gif" />
+    <Content Include="Content\images\stijnpoop.gif" />
+    <Content Include="Content\images\stijndead.png" />
+    <Content Include="Content\images\stijnhappy.gif" />
+    <Content Include="Content\images\stijnsleepy.gif" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
