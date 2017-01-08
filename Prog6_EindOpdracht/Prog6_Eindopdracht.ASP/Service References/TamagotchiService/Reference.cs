@@ -531,12 +531,6 @@ namespace Prog6_Eindopdracht.ASP.TamagotchiService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/GeTamagotchi", ReplyAction="http://tempuri.org/ITamagotchiService/GeTamagotchiResponse")]
         System.Threading.Tasks.Task<Prog6_Eindopdracht.ASP.TamagotchiService.Tamagotchi> GeTamagotchiAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/GetCurrentTamagotchiStatus", ReplyAction="http://tempuri.org/ITamagotchiService/GetCurrentTamagotchiStatusResponse")]
-        string GetCurrentTamagotchiStatus(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/GetCurrentTamagotchiStatus", ReplyAction="http://tempuri.org/ITamagotchiService/GetCurrentTamagotchiStatusResponse")]
-        System.Threading.Tasks.Task<string> GetCurrentTamagotchiStatusAsync(int id);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/CanActionBePerformed", ReplyAction="http://tempuri.org/ITamagotchiService/CanActionBePerformedResponse")]
         bool CanActionBePerformed(int id);
         
@@ -661,14 +655,6 @@ namespace Prog6_Eindopdracht.ASP.TamagotchiService {
         
         public System.Threading.Tasks.Task<Prog6_Eindopdracht.ASP.TamagotchiService.Tamagotchi> GeTamagotchiAsync(int id) {
             return base.Channel.GeTamagotchiAsync(id);
-        }
-        
-        public string GetCurrentTamagotchiStatus(int id) {
-            return base.Channel.GetCurrentTamagotchiStatus(id);
-        }
-        
-        public System.Threading.Tasks.Task<string> GetCurrentTamagotchiStatusAsync(int id) {
-            return base.Channel.GetCurrentTamagotchiStatusAsync(id);
         }
         
         public bool CanActionBePerformed(int id) {
